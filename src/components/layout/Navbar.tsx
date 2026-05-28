@@ -44,7 +44,9 @@ export default function Navbar() {
             <img
               src="https://www.artcolorsbergamo.com/assets/images/image05.jpg"
               alt="Art Colors Bergamo Logo"
-              className={`h-10 w-auto object-contain transition-all duration-300 ${scrolled ? "brightness-100" : "brightness-0 invert"}`}
+              className={`h-10 w-auto object-contain transition-all duration-300 ${
+                scrolled ? "" : "mix-blend-screen"
+              }`}
             />
           </Link>
 

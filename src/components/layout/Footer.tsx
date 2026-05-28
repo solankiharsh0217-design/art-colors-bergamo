@@ -30,7 +30,7 @@ export default function Footer() {
               <img
                 src="https://www.artcolorsbergamo.com/assets/images/image05.jpg"
                 alt="Art Colors Bergamo Logo"
-                className="h-10 w-auto object-contain brightness-0 invert"
+                className="h-10 w-auto object-contain mix-blend-screen"
               />
             </Link>
             <p className="text-sm text-white/60 leading-relaxed">
