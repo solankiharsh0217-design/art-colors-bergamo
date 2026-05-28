@@ -33,43 +33,43 @@ export default function Home() {
     <>
       {/* ===== HERO ===== */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-foreground">
-        {/* Paint splatter background */}
+        {/* Background accents */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px]" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/15 rounded-full blur-[120px]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cta/10 rounded-full blur-[150px]" />
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3" />
+          <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-cta/8 rounded-full blur-[80px]" />
         </div>
 
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
+        {/* Subtle grid */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+          backgroundSize: "80px 80px",
         }} />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
-            {/* Main Content */}
-            <div className="flex-1 max-w-2xl">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-40 pb-24">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16 gap-14">
+            {/* Left: Main Content */}
+            <div className="flex-1">
               <ScrollReveal>
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-xs font-extrabold uppercase tracking-widest mb-6 brutal-shadow">
-                  <CheckCircle size={14} strokeWidth={3} />
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-primary text-white text-[11px] font-extrabold uppercase tracking-[0.2em] mb-8 brutal-shadow">
+                  <CheckCircle size={13} strokeWidth={3} />
                   Bergamo&apos;s #1 Rated Painter
                 </div>
               </ScrollReveal>
 
               <ScrollReveal delay={100}>
                 <h1
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[0.95] mb-6 uppercase"
+                  className="text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[6.5rem] font-extrabold text-white uppercase leading-[0.88] mb-8"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
-                  Pittura
-                  <span className="block text-primary">la tua</span>
-                  <span className="block text-cta">casa</span>
+                  <span className="block">Pittura</span>
+                  <span className="block text-primary mt-1">la tua</span>
+                  <span className="block text-cta mt-1">casa</span>
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
-                <p className="text-lg text-white/60 max-w-md mb-8 leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-white/50 max-w-md mb-10 leading-relaxed font-medium">
                   Imbianchini a Bergamo e provincia. Oltre 23 anni di esperienza in imbiancature e tinteggiature di interni ed esterni.
                 </p>
               </ScrollReveal>
@@ -85,31 +85,31 @@ export default function Home() {
                   </Link>
                   <a
                     href={SITE.phoneLink}
-                    className="inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:border-white hover:bg-white/5 transition-all cursor-pointer"
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-white/20 text-white/80 font-bold uppercase tracking-wider text-sm hover:border-white/50 hover:text-white transition-all cursor-pointer"
                   >
-                    <Phone size={18} strokeWidth={2.5} />
+                    <Phone size={16} strokeWidth={2.5} />
                     {SITE.phone}
                   </a>
                 </div>
               </ScrollReveal>
             </div>
 
-            {/* Stats Panel */}
-            <div className="lg:w-80 shrink-0">
+            {/* Right: Stats */}
+            <div className="lg:w-[340px] shrink-0">
               <ScrollReveal direction="right">
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {STATS.map((stat, i) => (
                     <div
                       key={stat.label}
-                      className="flex items-center gap-5 p-5 bg-white/5 border border-white/10 backdrop-blur-sm"
+                      className="flex items-center gap-5 p-5 bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm hover:bg-white/[0.07] transition-colors"
                     >
                       <div
-                        className="text-4xl sm:text-5xl font-extrabold text-cta shrink-0 w-24 text-right"
+                        className="text-4xl sm:text-5xl font-extrabold text-cta shrink-0 w-28 text-right leading-none"
                         style={{ fontFamily: "var(--font-display)" }}
                       >
                         {stat.number}
                       </div>
-                      <div className="text-white/70 font-bold uppercase tracking-wider text-xs leading-tight">
+                      <div className="text-white/50 font-bold uppercase tracking-[0.15em] text-[11px] leading-snug">
                         {stat.label}
                       </div>
                     </div>
@@ -121,10 +121,10 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-[10px] tracking-[0.3em] uppercase text-white/30 font-bold">Scorri</span>
-          <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-white/50 animate-bounce" />
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <span className="text-[10px] tracking-[0.3em] uppercase text-white/25 font-bold">Scorri</span>
+          <div className="w-5 h-8 rounded-full border border-white/15 flex justify-center pt-1.5">
+            <div className="w-1 h-1.5 rounded-full bg-white/40 animate-bounce" />
           </div>
         </div>
       </section>
