@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SITE, SERVICES } from "@/lib/constants";
-import { Paintbrush, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 function FacebookIcon({ size = 16 }: { size?: number }) {
   return (
@@ -20,36 +20,34 @@ function InstagramIcon({ size = 16 }: { size?: number }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-foreground text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">
-                <Paintbrush size={18} className="text-white" />
-              </div>
-              <div className="flex flex-col leading-tight">
-                <span className="text-lg font-semibold tracking-tight text-white" style={{ fontFamily: "var(--font-heading)" }}>
-                  Art Colors
-                </span>
-                <span className="text-[9px] tracking-[0.15em] uppercase text-white/50">Bergamo</span>
-              </div>
+            <Link href="/" className="flex items-center gap-3 mb-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://www.artcolorsbergamo.com/assets/images/image05.jpg"
+                alt="Art Colors Bergamo Logo"
+                className="h-10 w-auto object-contain brightness-0 invert"
+              />
             </Link>
-            <p className="text-sm text-white/70 leading-relaxed">
-              {SITE.tagline}
+            <p className="text-sm text-white/60 leading-relaxed">
+              Imbianchini a Bergamo e provincia. Oltre 23 anni di esperienza in imbiancature e tinteggiature.
             </p>
+            <p className="text-xs text-white/40 mt-3">P.IVA: {SITE.piva}</p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+            <h4 className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/40 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
               Servizi
             </h4>
             <ul className="space-y-2">
               {SERVICES.slice(0, 5).map((s) => (
                 <li key={s.slug}>
-                  <Link href="/servizi" className="text-sm text-white/70 hover:text-white transition-colors cursor-pointer">
+                  <Link href="/servizi" className="text-sm text-white/60 hover:text-white transition-colors font-medium cursor-pointer">
                     {s.title}
                   </Link>
                 </li>
@@ -59,10 +57,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+            <h4 className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/40 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
               Contatti
             </h4>
-            <div className="space-y-3 text-sm text-white/70">
+            <div className="space-y-3 text-sm text-white/60">
               <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-white transition-colors cursor-pointer">
                 <MapPin size={14} className="mt-0.5 shrink-0" />
                 {SITE.address}
@@ -76,16 +74,24 @@ export default function Footer() {
                 {SITE.email}
               </a>
             </div>
+            <div className="flex gap-2 mt-4">
+              <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary transition-colors cursor-pointer" aria-label="Facebook">
+                <FacebookIcon size={14} />
+              </a>
+              <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary transition-colors cursor-pointer" aria-label="Instagram">
+                <InstagramIcon size={14} />
+              </a>
+            </div>
           </div>
 
           {/* Hours */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+            <h4 className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/40 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
               Orari
             </h4>
-            <div className="space-y-2 text-sm text-white/70">
-              <div className="flex items-center gap-2">
-                <Clock size={14} className="shrink-0" />
+            <div className="space-y-2 text-sm text-white/60">
+              <div className="flex items-start gap-2">
+                <Clock size={14} className="mt-0.5 shrink-0" />
                 <div>
                   <p>{SITE.hours.weekdays}</p>
                   <p>{SITE.hours.saturday}</p>
@@ -93,21 +99,16 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className="flex gap-3 mt-4">
-              <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors cursor-pointer" aria-label="Facebook">
-                <FacebookIcon size={16} />
-              </a>
-              <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors cursor-pointer" aria-label="Instagram">
-                <InstagramIcon size={16} />
-              </a>
-            </div>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/40">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/30">
           <p>&copy; {new Date().getFullYear()} {SITE.fullName}. Tutti i diritti riservati.</p>
-          <p>P.IVA: {SITE.piva}</p>
+          <div className="flex gap-4">
+            <a href="https://www.iubenda.com/privacy-policy/70521593" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Privacy Policy</a>
+            <a href="https://www.iubenda.com/privacy-policy/70521593/cookie-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Cookie Policy</a>
+          </div>
         </div>
       </div>
     </footer>
