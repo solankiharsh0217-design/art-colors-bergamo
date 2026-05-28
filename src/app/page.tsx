@@ -46,10 +46,10 @@ export default function Home() {
           backgroundSize: "60px 60px",
         }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
             {/* Main Content */}
-            <div className="lg:col-span-7">
+            <div className="flex-1 max-w-2xl">
               <ScrollReveal>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-xs font-extrabold uppercase tracking-widest mb-6 brutal-shadow">
                   <CheckCircle size={14} strokeWidth={3} />
@@ -95,22 +95,21 @@ export default function Home() {
             </div>
 
             {/* Stats Panel */}
-            <div className="lg:col-span-5">
+            <div className="lg:w-80 shrink-0">
               <ScrollReveal direction="right">
                 <div className="space-y-4">
                   {STATS.map((stat, i) => (
                     <div
                       key={stat.label}
-                      className="flex items-center gap-6 p-5 bg-white/5 border border-white/10 backdrop-blur-sm"
-                      style={{ animationDelay: `${i * 100}ms` }}
+                      className="flex items-center gap-5 p-5 bg-white/5 border border-white/10 backdrop-blur-sm"
                     >
                       <div
-                        className="text-5xl sm:text-6xl font-extrabold text-cta shrink-0"
+                        className="text-4xl sm:text-5xl font-extrabold text-cta shrink-0 w-24 text-right"
                         style={{ fontFamily: "var(--font-display)" }}
                       >
                         {stat.number}
                       </div>
-                      <div className="text-white/70 font-bold uppercase tracking-wider text-sm">
+                      <div className="text-white/70 font-bold uppercase tracking-wider text-xs leading-tight">
                         {stat.label}
                       </div>
                     </div>
