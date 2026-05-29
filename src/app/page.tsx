@@ -95,16 +95,16 @@ export default function Home() {
             </div>
 
             {/* Right: Stats */}
-            <div className="lg:w-[340px] shrink-0">
+            <div className="lg:w-[360px] shrink-0">
               <ScrollReveal direction="right">
                 <div className="space-y-3">
                   {STATS.map((stat, i) => (
                     <div
                       key={stat.label}
-                      className="flex items-center gap-5 p-5 bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm hover:bg-white/[0.07] transition-colors"
+                      className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 p-5 bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm hover:bg-white/[0.07] transition-colors"
                     >
                       <div
-                        className="text-4xl sm:text-5xl font-extrabold text-cta shrink-0 w-28 text-right leading-none"
+                        className="text-4xl sm:text-5xl font-extrabold text-cta leading-none"
                         style={{ fontFamily: "var(--font-display)" }}
                       >
                         {stat.number}
