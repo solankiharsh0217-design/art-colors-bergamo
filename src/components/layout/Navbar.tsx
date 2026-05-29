@@ -47,14 +47,28 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 cursor-pointer">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://www.artcolorsbergamo.com/assets/images/image05.jpg"
-              alt="Art Colors Bergamo Logo"
-              className={`h-10 w-auto object-contain transition-all duration-500 ${
-                showLight ? "brightness-0 invert" : ""
-              }`}
-            />
+            <div className="relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://www.artcolorsbergamo.com/assets/images/image05.jpg"
+                alt="Art Colors Bergamo Logo"
+                className={`h-10 w-auto object-contain transition-all duration-500 ${
+                  showLight ? "mix-blend-screen brightness-150" : ""
+                }`}
+              />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className={`text-lg font-bold tracking-tight transition-colors duration-500 ${
+                showLight ? "text-white" : "text-primary"
+              }`} style={{ fontFamily: "var(--font-heading)" }}>
+                Art Colors
+              </span>
+              <span className={`text-[10px] font-semibold uppercase tracking-[0.15em] transition-colors duration-500 ${
+                showLight ? "text-white/50" : "text-text-muted"
+              }`}>
+                Bergamo
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}

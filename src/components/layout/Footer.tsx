@@ -30,8 +30,16 @@ export default function Footer() {
               <img
                 src="https://www.artcolorsbergamo.com/assets/images/image05.jpg"
                 alt="Art Colors Bergamo Logo"
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto object-contain mix-blend-screen brightness-150"
               />
+              <div className="flex flex-col leading-none">
+                <span className="text-lg font-bold tracking-tight text-white" style={{ fontFamily: "var(--font-heading)" }}>
+                  Art Colors
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-white/40">
+                  Bergamo
+                </span>
+              </div>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed mb-4">
               Imbianchini a Bergamo e provincia. Oltre 23 anni di esperienza in imbiancature e tinteggiature di interni ed esterni.
