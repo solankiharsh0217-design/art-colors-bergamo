@@ -41,42 +41,73 @@ body {
 
 /* ===== ANIMATIONS ===== */
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-40px); }
+  from { opacity: 0; transform: translateX(-60px); }
   to { opacity: 1; transform: translateX(0); }
 }
 @keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(40px); }
+  from { opacity: 0; transform: translateX(60px); }
   to { opacity: 1; transform: translateX(0); }
 }
 @keyframes scale-in {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-@keyframes count-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+@keyframes hero-text-reveal {
+  from { opacity: 0; transform: translateY(60px) skewY(2deg); }
+  to { opacity: 1; transform: translateY(0) skewY(0deg); }
 }
-@keyframes float-badge {
+@keyframes hero-line-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes fade-in-scale {
+  from { opacity: 0; transform: scale(0.8) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes slide-up-stagger {
+  from { opacity: 0; transform: translateY(80px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float-subtle {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(3, 105, 161, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(3, 105, 161, 0); }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes reveal-line {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* ===== PARALLAX ===== */
+.parallax-bg {
+  will-change: transform;
+  transition: transform 0.1s linear;
 }
 
 /* ===== UTILITY CLASSES ===== */
 .card-hover {
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.15);
 }
 
 .section-padding {
@@ -112,6 +143,7 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .parallax-bg { transform: none !important; }
 }
 
 /* Selection */
@@ -157,4 +189,81 @@ body {
   width: 48px;
   height: 3px;
   background: var(--color-accent);
+}
+
+/* ===== EDITORIAL HERO ===== */
+.hero-editorial {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-editorial-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  transition: transform 8s ease-out;
+}
+
+.hero-editorial.loaded .hero-editorial-bg {
+  transform: scale(1);
+}
+
+.hero-editorial-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(15, 23, 42, 0.7) 40%,
+    rgba(15, 23, 42, 0.2) 70%,
+    rgba(15, 23, 42, 0.1) 100%
+  );
+}
+
+.hero-editorial-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-editorial-content {
+    padding-bottom: 5rem;
+  }
+}
+
+/* Text reveal animation classes */
+.reveal-hero {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-hero-delay-1 { transition-delay: 0.1s; }
+.reveal-hero-delay-2 { transition-delay: 0.25s; }
+.reveal-hero-delay-3 { transition-delay: 0.4s; }
+.reveal-hero-delay-4 { transition-delay: 0.55s; }
+.reveal-hero-delay-5 { transition-delay: 0.7s; }
+
+/* Editorial line animation */
+.editorial-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.editorial-line.visible {
+  transform: scaleX(1);
 }

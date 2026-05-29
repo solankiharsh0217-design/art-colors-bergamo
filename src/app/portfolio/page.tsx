@@ -14,15 +14,19 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 px-4 bg-white border-b border-border">
+      <section className="relative pt-36 pb-20 px-4 bg-primary overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)`,
+          backgroundSize: "32px 32px",
+        }} />
         <div className="max-w-5xl mx-auto relative z-10">
           <ScrollReveal>
-            <p className="text-xs font-bold text-accent tracking-[0.2em] uppercase mb-2">Portfolio</p>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+            <p className="text-xs font-bold text-accent-light tracking-[0.2em] uppercase mb-3">Portfolio</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5" style={{ fontFamily: "var(--font-heading)" }}>
               I nostri lavori recenti
             </h1>
-            <div className="divider-accent mb-4" />
-            <p className="text-lg text-text-secondary max-w-2xl">
+            <div className="w-16 h-1 bg-accent mb-5" />
+            <p className="text-lg text-white/60 max-w-2xl">
               Scopri i nostri progetti completati a Bergamo e provincia.
             </p>
           </ScrollReveal>
