@@ -9,11 +9,10 @@ export default function WhatsAppButton() {
       href={SITE.whatsapp}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20BD5C] transition-colors cursor-pointer"
-      style={{ animation: "whatsapp-pulse 2s infinite" }}
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-whatsapp text-white shadow-lg hover:bg-whatsapp/90 transition-all duration-200 cursor-pointer hover:scale-105"
       aria-label="Contattaci su WhatsApp"
     >
-      <MessageCircle size={26} />
+      <MessageCircle size={24} />
     </a>
   );
 }

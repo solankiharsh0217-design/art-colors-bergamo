@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SITE, SERVICES } from "@/lib/constants";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ShieldCheck } from "lucide-react";
 
 function FacebookIcon({ size = 16 }: { size?: number }) {
   return (
@@ -20,7 +20,7 @@ function InstagramIcon({ size = 16 }: { size?: number }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-white">
+    <footer className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -30,24 +30,27 @@ export default function Footer() {
               <img
                 src="https://www.artcolorsbergamo.com/assets/images/image05.jpg"
                 alt="Art Colors Bergamo Logo"
-                className="h-10 w-auto object-contain mix-blend-screen"
+                className="h-10 w-auto object-contain"
               />
             </Link>
-            <p className="text-sm text-white/60 leading-relaxed">
-              Imbianchini a Bergamo e provincia. Oltre 23 anni di esperienza in imbiancature e tinteggiature.
+            <p className="text-sm text-white/60 leading-relaxed mb-4">
+              Imbianchini a Bergamo e provincia. Oltre 23 anni di esperienza in imbiancature e tinteggiature di interni ed esterni.
             </p>
-            <p className="text-xs text-white/40 mt-3">P.IVA: {SITE.piva}</p>
+            <div className="flex items-center gap-2 text-xs text-white/40">
+              <ShieldCheck size={14} className="text-success" />
+              <span>P.IVA: {SITE.piva}</span>
+            </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/40 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
               Servizi
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {SERVICES.slice(0, 5).map((s) => (
                 <li key={s.slug}>
-                  <Link href="/servizi" className="text-sm text-white/60 hover:text-white transition-colors font-medium cursor-pointer">
+                  <Link href="/servizi" className="text-sm text-white/60 hover:text-white transition-colors duration-200 font-medium cursor-pointer">
                     {s.title}
                   </Link>
                 </li>
@@ -57,28 +60,28 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/40 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
               Contatti
             </h4>
             <div className="space-y-3 text-sm text-white/60">
-              <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-white transition-colors cursor-pointer">
+              <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-white transition-colors duration-200 cursor-pointer">
                 <MapPin size={14} className="mt-0.5 shrink-0" />
                 {SITE.address}
               </a>
-              <a href={SITE.phoneLink} className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
+              <a href={SITE.phoneLink} className="flex items-center gap-2 hover:text-white transition-colors duration-200 cursor-pointer">
                 <Phone size={14} className="shrink-0" />
                 {SITE.phone}
               </a>
-              <a href={SITE.emailLink} className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
+              <a href={SITE.emailLink} className="flex items-center gap-2 hover:text-white transition-colors duration-200 cursor-pointer">
                 <Mail size={14} className="shrink-0" />
                 {SITE.email}
               </a>
             </div>
             <div className="flex gap-2 mt-4">
-              <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary transition-colors cursor-pointer" aria-label="Facebook">
+              <a href={SITE.social.facebook} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-accent transition-colors duration-200 cursor-pointer" aria-label="Facebook">
                 <FacebookIcon size={14} />
               </a>
-              <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-primary transition-colors cursor-pointer" aria-label="Instagram">
+              <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-accent transition-colors duration-200 cursor-pointer" aria-label="Instagram">
                 <InstagramIcon size={14} />
               </a>
             </div>
@@ -86,10 +89,10 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <h4 className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/40 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
               Orari
             </h4>
-            <div className="space-y-2 text-sm text-white/60">
+            <div className="space-y-2.5 text-sm text-white/60">
               <div className="flex items-start gap-2">
                 <Clock size={14} className="mt-0.5 shrink-0" />
                 <div>
@@ -106,8 +109,8 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/30">
           <p>&copy; {new Date().getFullYear()} {SITE.fullName}. Tutti i diritti riservati.</p>
           <div className="flex gap-4">
-            <a href="https://www.iubenda.com/privacy-policy/70521593" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Privacy Policy</a>
-            <a href="https://www.iubenda.com/privacy-policy/70521593/cookie-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Cookie Policy</a>
+            <a href="https://www.iubenda.com/privacy-policy/70521593" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors duration-200">Privacy Policy</a>
+            <a href="https://www.iubenda.com/privacy-policy/70521593/cookie-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors duration-200">Cookie Policy</a>
           </div>
         </div>
       </div>

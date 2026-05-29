@@ -22,10 +22,10 @@ export default function ScrollReveal({
     if (!el) return;
 
     const animationMap: Record<string, string> = {
-      up: "fade-in-up 0.7s ease-out forwards",
-      left: "slide-in-left 0.7s ease-out forwards",
-      right: "slide-in-right 0.7s ease-out forwards",
-      scale: "scale-in 0.7s ease-out forwards",
+      up: "fade-in-up 0.6s ease-out forwards",
+      left: "slide-in-left 0.6s ease-out forwards",
+      right: "slide-in-right 0.6s ease-out forwards",
+      scale: "scale-in 0.6s ease-out forwards",
     };
 
     el.style.opacity = "0";
@@ -42,7 +42,7 @@ export default function ScrollReveal({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
     );
 
     observer.observe(el);
