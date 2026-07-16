@@ -54,11 +54,10 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
-        <Script
+        <script
           src="https://widget-deploy-alpha.vercel.app/embed.js"
           data-widget-id="743a306b-cad9-4f00-9b5c-8ec60b202561"
           data-api-url="https://api-worker.orbitcrew2026.workers.dev"
-          strategy="afterInteractive"
         />
       </body>
     </html>
